@@ -71,6 +71,13 @@ $(document).ready(function () {
     console.log('Successfully connect WebSocket');
   }
   ws.onmessage = function (message) {
+
+    $.ajax({
+        url:"http://orderyoyo-qa-warmup.azurewebsites.net/User/SendPush/3",
+        type:"POST",
+        success : function(){ console.log('Success!!');}
+        })
+    
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
