@@ -33,7 +33,7 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Temperature & Humidity  2 Real-time Data',
+      text: 'Temperature & Humidity Real-time Data',
       fontSize: 36
     },
     scales: {
@@ -74,8 +74,7 @@ $(document).ready(function () {
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
-        obj.time = Date.now();
-      if(!obj.temperature) {
+      if(!obj.time || !obj.temperature) {
         return;
       }
       timeData.push(obj.time);
