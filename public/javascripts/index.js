@@ -74,7 +74,8 @@ $(document).ready(function () {
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
-      if(!obj.time || !obj.temperature) {
+        obj.time = Date.now();
+      if(!obj.temperature) {
         return;
       }
       timeData.push(obj.time);
